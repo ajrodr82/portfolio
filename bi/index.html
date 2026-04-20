@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aaron Rodriguez — BI & Analytics Engineer</title>
+  <meta name="description" content="BI Developer and Analytics Engineer with 10+ years building enterprise semantic models, Power BI solutions, and self-serve analytics platforms." />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/ibm-plex-mono@5/400.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/ibm-plex-mono@5/600.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/ibm-plex-sans@5/400.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/ibm-plex-sans@5/500.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0d1117;
+      --surface:  #161b22;
+      --surface2: #1c2128;
+      --border:   #30363d;
+      --border2:  #444c56;
+      --text:     #e6edf3;
+      --muted:    #8b949e;
+      --dim:      #6e7681;
+      --cyan:     #39d0d8;
+      --cyan-bg:  rgba(57, 208, 216, 0.08);
+      --cyan-bdr: rgba(57, 208, 216, 0.25);
+      --amber:    #f0a93a;
+      --mono:     'IBM Plex Mono', monospace;
+      --sans:     'IBM Plex Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 56px;
+      background: rgba(13, 17, 23, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--cyan);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+    }
+    .nav-logo span { color: var(--muted); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      color: var(--cyan) !important;
+      border: 1px solid var(--cyan-bdr);
+      border-radius: 4px;
+      padding: 5px 12px;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--cyan-bg) !important; }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 120px 48px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(57, 208, 216, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(57, 208, 216, 0.035) 1px, transparent 1px);
+      background-size: 40px 40px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black, transparent);
+    }
+
+    .hero-fade {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 120px;
+      background: linear-gradient(transparent, var(--bg));
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 720px;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--cyan);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.1s;
+    }
+
+    .hero-name {
+      font-family: var(--mono);
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.1;
+      margin-bottom: 8px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.2s;
+    }
+
+    .hero-role {
+      font-family: var(--mono);
+      font-size: clamp(16px, 2.5vw, 22px);
+      color: var(--cyan);
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.3s;
+    }
+
+    .hero-bio {
+      font-family: var(--sans);
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 600px;
+      margin-bottom: 36px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.4s;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.5s;
+    }
+
+    .tag {
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+    .tag.primary {
+      border-color: var(--cyan-bdr);
+      color: var(--cyan);
+      background: var(--cyan-bg);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 0.6s;
+    }
+
+    .btn {
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-primary {
+      background: var(--cyan);
+      color: #0d1117;
+      border: 1px solid var(--cyan);
+      font-weight: 600;
+    }
+    .btn-primary:hover { background: #2bbfc7; border-color: #2bbfc7; }
+    .btn-ghost {
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+    .btn-ghost:hover { border-color: var(--border2); color: var(--text); }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 32px;
+      left: 48px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--dim);
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards 1s;
+    }
+    .scroll-hint::before {
+      content: '';
+      width: 1px;
+      height: 32px;
+      background: linear-gradient(transparent, var(--dim));
+    }
+
+    section {
+      padding: 80px 48px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--cyan);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .section-num {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--dim);
+    }
+
+    .competency-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .competency-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+      transition: border-color 0.2s;
+    }
+    .competency-card:hover { border-color: var(--border2); }
+
+    .comp-icon {
+      font-family: var(--mono);
+      font-size: 20px;
+      margin-bottom: 12px;
+      color: var(--cyan);
+    }
+
+    .comp-title {
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .comp-desc {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .comp-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .comp-tag {
+      font-family: var(--mono);
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: 3px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--dim);
+    }
+
+    .exp-item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 32px;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .exp-item:first-child { border-top: 1px solid var(--border); }
+
+    .exp-period {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--dim);
+      margin-bottom: 6px;
+      padding-top: 2px;
+    }
+
+    .exp-company {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .exp-title {
+      font-family: var(--mono);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .exp-highlights {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .exp-highlights li {
+      font-family: var(--sans);
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+      padding-left: 16px;
+      position: relative;
+    }
+    .exp-highlights li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--cyan);
+      font-family: var(--mono);
+    }
+
+    .proj-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+    }
+
+    .proj-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: border-color 0.2s;
+      text-decoration: none;
+    }
+    .proj-card:hover { border-color: var(--cyan-bdr); }
+
+    .proj-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .proj-title {
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .proj-badge {
+      font-family: var(--mono);
+      font-size: 9px;
+      padding: 3px 7px;
+      border-radius: 3px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .badge-live {
+      background: var(--cyan-bg);
+      color: var(--cyan);
+      border: 1px solid var(--cyan-bdr);
+    }
+    .badge-wip {
+      background: rgba(240, 169, 58, 0.08);
+      color: var(--amber);
+      border: 1px solid rgba(240, 169, 58, 0.25);
+    }
+
+    .proj-desc {
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .proj-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .proj-tag {
+      font-family: var(--mono);
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: 3px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--dim);
+    }
+
+    .proj-link {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--cyan);
+      margin-top: 4px;
+    }
+
+    .cta-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(57, 208, 216, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(57, 208, 216, 0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    .cta-content { position: relative; }
+
+    .cta-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--cyan);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .cta-heading {
+      font-family: var(--mono);
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .cta-sub {
+      font-family: var(--sans);
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-left {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--dim);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--muted); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { gap: 16px; }
+      .hero { padding: 100px 20px 60px; }
+      section { padding: 60px 20px; }
+      .exp-item { grid-template-columns: 1fr; gap: 8px; }
+      footer { padding: 20px; flex-direction: column; gap: 12px; text-align: center; }
+      .cta-block { padding: 32px 20px; }
+      .cta-actions { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="/"><span>~/</span>aaron_rodriguez</a>
+    <ul class="nav-links">
+      <li><a href="/">home</a></li>
+      <li><a href="#competencies">skills</a></li>
+      <li><a href="#experience">experience</a></li>
+      <li><a href="#projects">projects</a></li>
+      <li><a href="/AE.pdf" target="_blank" class="nav-cta">resume ↓</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-fade"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">// bi & analytics engineer</div>
+      <h1 class="hero-name">Aaron Rodriguez</h1>
+      <div class="hero-role">Turning data into decisions.</div>
+      <p class="hero-bio">
+        Business Intelligence Developer and Analytics Engineer with 10+ years of experience building enterprise semantic models, end-to-end ETL pipelines, and self-serve analytics solutions across Azure and AWS. Deep expertise in Power BI, DAX, SSAS, and dimensional modeling — bridging the gap between raw data and meaningful business insight.
+      </p>
+      <div class="hero-tags">
+        <span class="tag primary">Power BI</span>
+        <span class="tag primary">DAX</span>
+        <span class="tag primary">SSAS</span>
+        <span class="tag primary">Dimensional Modeling</span>
+        <span class="tag">dbt</span>
+        <span class="tag">SQL Server</span>
+        <span class="tag">Azure</span>
+        <span class="tag">Databricks</span>
+        <span class="tag">Python</span>
+        <span class="tag">D3.js</span>
+      </div>
+      <div class="hero-actions">
+        <a href="/AE.pdf" target="_blank" class="btn btn-primary">↓ Download Resume</a>
+        <a href="#projects" class="btn btn-ghost">View Projects</a>
+      </div>
+    </div>
+    <div class="scroll-hint">scroll</div>
+  </header>
+
+  <section id="competencies">
+    <div class="section-header reveal">
+      <span class="section-label">core competencies</span>
+      <div class="section-line"></div>
+      <span class="section-num">01</span>
+    </div>
+    <div class="competency-grid">
+      <div class="competency-card reveal">
+        <div class="comp-icon">▦</div>
+        <div class="comp-title">Power BI Development</div>
+        <div class="comp-desc">Building enterprise-grade Power BI reports and dashboards — from data model design through DAX measure development to report layout and performance optimization.</div>
+        <div class="comp-tags">
+          <span class="comp-tag">Power BI Desktop</span>
+          <span class="comp-tag">Power BI Service</span>
+          <span class="comp-tag">Power Query</span>
+          <span class="comp-tag">Report Design</span>
+          <span class="comp-tag">Row-Level Security</span>
+        </div>
+      </div>
+      <div class="competency-card reveal">
+        <div class="comp-icon">◎</div>
+        <div class="comp-title">DAX & Semantic Modeling</div>
+        <div class="comp-desc">Writing complex DAX for calculated columns, measures, and time intelligence — and designing semantic models that are fast, flexible, and easy for analysts to explore.</div>
+        <div class="comp-tags">
+          <span class="comp-tag">DAX</span>
+          <span class="comp-tag">SSAS Tabular</span>
+          <span class="comp-tag">SSAS Multidimensional</span>
+          <span class="comp-tag">Analysis Services</span>
+          <span class="comp-tag">Time Intelligence</span>
+        </div>
+      </div>
+      <div class="competency-card reveal">
+        <div class="comp-icon">⟁</div>
+        <div class="comp-title">ETL & Data Integration</div>
+        <div class="comp-desc">End-to-end pipeline development feeding BI layers — from source extraction and transformation through loading into dimensional models and semantic layers.</div>
+        <div class="comp-tags">
+          <span class="comp-tag">SSIS</span>
+          <span class="comp-tag">Azure Data Factory</span>
+          <span class="comp-tag">dbt</span>
+          <span class="comp-tag">Python</span>
+          <span class="comp-tag">SQL Server</span>
+        </div>
+      </div>
+      <div class="competency-card reveal">
+        <div class="comp-icon">⬡</div>
+        <div class="comp-title">Dimensional Modeling</div>
+        <div class="comp-desc">Designing star and snowflake schemas optimized for BI tooling — with slowly changing dimension handling, conformed dimensions, and fact table grain decisions documented and deliberate.</div>
+        <div class="comp-tags">
+          <span class="comp-tag">Star Schema</span>
+          <span class="comp-tag">Snowflake Schema</span>
+          <span class="comp-tag">SCDs</span>
+          <span class="comp-tag">Fact & Dimension Design</span>
+        </div>
+      </div>
+      <div class="competency-card reveal">
+        <div class="comp-icon">◈</div>
+        <div class="comp-title">Self-Serve Analytics</div>
+        <div class="comp-desc">Building analytics platforms that empower business users to answer their own questions — with governed data models, intuitive naming conventions, and curated report templates.</div>
+        <div class="comp-tags">
+          <span class="comp-tag">Self-Serve BI</span>
+          <span class="comp-tag">Data Catalog</span>
+          <span class="comp-tag">Semantic Layer</span>
+          <span class="comp-tag">Stakeholder Enablement</span>
+        </div>
+      </div>
+      <div class="competency-card reveal">
+        <div class="comp-icon">⊞</div>
+        <div class="comp-title">Data Visualization</div>
+        <div class="comp-desc">Designing clear, purposeful data visualizations — from executive dashboards to operational reports — using both enterprise BI tooling and code-based libraries for custom experiences.</div>
+        <div class="comp-tags">
+          <span class="comp-tag">Power BI</span>
+          <span class="comp-tag">D3.js</span>
+          <span class="comp-tag">Streamlit</span>
+          <span class="comp-tag">Dashboard Design</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="section-header reveal">
+      <span class="section-label">experience</span>
+      <div class="section-line"></div>
+      <span class="section-num">02</span>
+    </div>
+    <div>
+      <div class="exp-item reveal">
+        <div>
+          <div class="exp-period">2021 — Present</div>
+          <div class="exp-company">National CineMedia</div>
+        </div>
+        <div>
+          <div class="exp-title">Senior BI Engineer</div>
+          <ul class="exp-highlights">
+            <li>Built and maintained analytics pipelines on Databricks serving ad campaign and impression data to business stakeholders — designing Gold layer models optimized for BI consumption and self-serve reporting.</li>
+            <li>Developed schema validation logic that protected downstream reports from breaking when third-party data providers made undocumented structural changes — eliminating recurring report failures that had previously required manual triage.</li>
+            <li>Collaborated directly with business users and analysts to translate reporting requirements into dimensional models and semantic layer designs that matched how the business actually thought about their data.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div>
+          <div class="exp-period">2019 — 2021</div>
+          <div class="exp-company">Insight Global / AT&T</div>
+        </div>
+        <div>
+          <div class="exp-title">BI Developer (Contractor)</div>
+          <ul class="exp-highlights">
+            <li>Delivered Power BI reports and Azure-based ETL pipelines supporting business intelligence initiatives across large enterprise datasets.</li>
+            <li>Worked closely with business stakeholders to gather requirements and translate them into clean, governed data models and intuitive report designs.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div>
+          <div class="exp-period">2013 — 2019</div>
+          <div class="exp-company">Provisions Group & Others</div>
+        </div>
+        <div>
+          <div class="exp-title">BI Developer / Data Engineer</div>
+          <ul class="exp-highlights">
+            <li>Built SSAS tabular and multidimensional models, Power BI reports, and SQL Server ETL pipelines for clients across retail, finance, and government sectors.</li>
+            <li>Designed dimensional models and semantic layers that reduced ad-hoc SQL requests from analysts and gave business teams the self-serve reporting capabilities they needed.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-header reveal">
+      <span class="section-label">portfolio projects</span>
+      <div class="section-line"></div>
+      <span class="section-num">03</span>
+    </div>
+    <div class="proj-grid">
+      <div class="proj-card reveal">
+        <div class="proj-header">
+          <div class="proj-title">Box Office Analytics Pipeline</div>
+          <span class="proj-badge badge-wip">WIP</span>
+        </div>
+        <div class="proj-desc">End-to-end analytics pipeline with a dbt-modeled Gold layer served through a Streamlit dashboard — demonstrating the full journey from raw data to a clean, analyst-friendly reporting surface built on deliberate dimensional modeling decisions.</div>
+        <div class="proj-stack">
+          <span class="proj-tag">dbt</span>
+          <span class="proj-tag">DuckDB</span>
+          <span class="proj-tag">MotherDuck</span>
+          <span class="proj-tag">Dagster</span>
+          <span class="proj-tag">Streamlit</span>
+        </div>
+        <div class="proj-link">github.com/ajrodr82 ↗</div>
+      </div>
+      <div class="proj-card reveal">
+        <div class="proj-header">
+          <div class="proj-title">YNAB Finance Dashboard</div>
+          <span class="proj-badge badge-live">LIVE</span>
+        </div>
+        <div class="proj-desc">A custom personal finance dashboard built with D3.js — featuring KPI cards, monthly trend charts, spending category breakdowns with drilldown, and account balance tracking. Backed by a Supabase PostgreSQL database synced hourly via GitHub Actions.</div>
+        <div class="proj-stack">
+          <span class="proj-tag">D3.js</span>
+          <span class="proj-tag">Python</span>
+          <span class="proj-tag">Supabase</span>
+          <span class="proj-tag">GitHub Actions</span>
+          <span class="proj-tag">Netlify</span>
+        </div>
+        <div class="proj-link">ajrodriguez.me/ynab-dashboard ↗</div>
+      </div>
+      <div class="proj-card reveal">
+        <div class="proj-header">
+          <div class="proj-title">Weather Data Pipeline</div>
+          <span class="proj-badge badge-wip">WIP</span>
+        </div>
+        <div class="proj-desc">Airflow-orchestrated pipeline landing weather data through Cloudflare R2 into Snowflake — with a focus on clean data modeling and building a query layer ready for dashboard consumption.</div>
+        <div class="proj-stack">
+          <span class="proj-tag">Airflow</span>
+          <span class="proj-tag">Snowflake</span>
+          <span class="proj-tag">Cloudflare R2</span>
+          <span class="proj-tag">Python</span>
+        </div>
+        <div class="proj-link">github.com/ajrodr82 ↗</div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top: 0;">
+    <div class="cta-block reveal">
+      <div class="cta-grid"></div>
+      <div class="cta-content">
+        <div class="cta-label">// let's connect</div>
+        <div class="cta-heading">BI & Analytics Engineer</div>
+        <div class="cta-sub">10+ years turning data into decisions. Based in Toney, AL — open to remote.</div>
+        <div class="cta-actions">
+          <a href="/AE.pdf" target="_blank" class="btn btn-primary">↓ Download Resume</a>
+          <a href="mailto:ajrodr1982@gmail.com" class="btn btn-ghost">ajrodr1982@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-left">Aaron Rodriguez · Toney, AL</div>
+    <div class="footer-links">
+      <a href="https://github.com/ajrodr82" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/ajrodr82" target="_blank">LinkedIn</a>
+      <a href="mailto:ajrodr1982@gmail.com">Email</a>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

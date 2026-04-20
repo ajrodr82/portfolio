@@ -1,0 +1,20 @@
+# Create the Netlify config file in your portfolio root
+cat > ~/portfolio/netlify.toml << 'EOF'
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/dsa"
+  to = "/dsa/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/de"
+  to = "/de/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/bi"
+  to = "/bi/index.html"
+  status = 200
+EOF
