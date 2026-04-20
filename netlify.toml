@@ -1,5 +1,3 @@
-# Create the Netlify config file in your portfolio root
-cat > ~/portfolio/netlify.toml << 'EOF'
 [build]
   publish = "."
 
@@ -17,4 +15,3 @@ cat > ~/portfolio/netlify.toml << 'EOF'
   from = "/bi"
   to = "/bi/index.html"
   status = 200
-EOF
