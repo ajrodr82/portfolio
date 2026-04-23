@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aaron Rodriguez — Data Engineer & Architect</title>
-  <meta name="description" content="Data engineer and architect with 10+ years building reliable analytics platforms across Azure and AWS." />
+  <title>Aaron Rodriguez — Senior Data Engineer</title>
+  <meta name="description" content="Senior Data Engineer with 20+ years of experience maintaining and extending production data platforms in ad tech and programmatic advertising environments." />
   <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/ibm-plex-mono@5/400.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/ibm-plex-mono@5/600.css" />
@@ -334,89 +334,38 @@
       line-height: 1.7;
     }
 
-    /* ── PROJECTS ── */
-    .proj-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 16px;
-    }
-
-    .proj-card {
+    /* ── PROJECTS PLACEHOLDER ── */
+    .projects-placeholder {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      transition: border-color 0.2s;
-      text-decoration: none;
-    }
-    .proj-card:hover { border-color: var(--cyan-bdr); }
-
-    .proj-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 12px;
+      padding: 48px;
+      text-align: center;
     }
 
-    .proj-title {
-      font-family: var(--mono);
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text);
-      line-height: 1.4;
-    }
-
-    .proj-badge {
-      font-family: var(--mono);
-      font-size: 9px;
-      padding: 3px 7px;
-      border-radius: 3px;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-    .badge-live {
-      background: var(--cyan-bg);
-      color: var(--cyan);
-      border: 1px solid var(--cyan-bdr);
-    }
-    .badge-wip {
-      background: rgba(240, 169, 58, 0.08);
-      color: var(--amber);
-      border: 1px solid rgba(240, 169, 58, 0.25);
-    }
-
-    .proj-desc {
-      font-family: var(--sans);
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.6;
-      flex: 1;
-    }
-
-    .proj-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .proj-tag {
-      font-family: var(--mono);
-      font-size: 10px;
-      padding: 2px 7px;
-      border-radius: 3px;
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      color: var(--dim);
-    }
-
-    .proj-link {
+    .placeholder-label {
       font-family: var(--mono);
       font-size: 11px;
-      color: var(--cyan);
-      margin-top: 4px;
+      color: var(--dim);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .placeholder-heading {
+      font-family: var(--mono);
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .placeholder-sub {
+      font-family: var(--sans);
+      font-size: 14px;
+      color: var(--dim);
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.7;
     }
 
     /* ── CONTACT ── */
@@ -557,7 +506,7 @@
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links" id="nav-links">
-      <li><a href="#work">work</a></li>
+      <li><a href="#work">what I do</a></li>
       <li><a href="#projects">projects</a></li>
       <li><a href="https://github.com/ajrodr82" target="_blank">GitHub</a></li>
       <li><a href="mailto:ajrodr1982@gmail.com" class="nav-cta">get in touch</a></li>
@@ -568,27 +517,28 @@
     <div class="hero-grid"></div>
     <div class="hero-fade"></div>
     <div class="hero-content">
-      <div class="hero-eyebrow">// data engineer & architect</div>
+      <div class="hero-eyebrow">// senior data engineer</div>
       <h1 class="hero-name">Aaron Rodriguez</h1>
-      <div class="hero-role">Building data platforms that last.</div>
+      <div class="hero-role">Keeping data platforms running.</div>
       <p class="hero-bio">
-        10+ years designing and engineering analytics platforms across cloud and on-premises environments. From pipeline architecture and medallion design to semantic modeling and self-serve analytics — I build systems that are reliable, observable, and built to grow with the business.
+        20+ years in data engineering, with deep roots in ad tech and programmatic advertising. At National CineMedia — the largest cinema advertising network in the US — I maintain the production data infrastructure that ingests campaign and impression data from platforms like The Trade Desk, Xandr, PubMatic, and OpenX, and keeps reporting running for executive, sales, and finance teams. My work is hands-on: ADF pipelines, Databricks transformation logic, Fivetran integrations, and a full Power BI reporting layer. When things break, I fix them.
       </p>
       <div class="hero-tags">
+        <span class="tag primary">Azure Data Factory</span>
         <span class="tag primary">Databricks</span>
-        <span class="tag primary">Azure</span>
-        <span class="tag primary">AWS</span>
-        <span class="tag primary">dbt</span>
-        <span class="tag">Apache Spark</span>
-        <span class="tag">Delta Lake</span>
+        <span class="tag primary">Power BI</span>
+        <span class="tag primary">Fivetran</span>
+        <span class="tag">The Trade Desk</span>
+        <span class="tag">Xandr</span>
+        <span class="tag">PubMatic</span>
+        <span class="tag">OpenX</span>
+        <span class="tag">dbt</span>
         <span class="tag">Snowflake</span>
-        <span class="tag">Airflow</span>
-        <span class="tag">Power BI</span>
         <span class="tag">Python</span>
         <span class="tag">SQL</span>
       </div>
       <div class="hero-actions">
-        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="/AaronRodriguez_SeniorDE.pdf" target="_blank" class="btn btn-primary">Download Resume ↓</a>
         <a href="https://github.com/ajrodr82" target="_blank" class="btn btn-ghost">GitHub ↗</a>
       </div>
     </div>
@@ -605,18 +555,18 @@
     <div class="what-grid">
       <div class="what-card reveal">
         <div class="what-icon">⬡</div>
-        <div class="what-title">Platform Architecture</div>
-        <div class="what-desc">Designing end-to-end data platforms — from medallion architecture and cloud infrastructure to platform evaluation and architectural decision records.</div>
+        <div class="what-title">Pipeline Operations & Reliability</div>
+        <div class="what-desc">Monitoring, diagnosing, and resolving production pipeline failures in ADF and Databricks. When data stops flowing, reporting goes dark — I get it back up. Fast diagnosis, clean fixes, and a clear understanding of downstream impact.</div>
       </div>
       <div class="what-card reveal">
         <div class="what-icon">⟁</div>
-        <div class="what-title">Pipeline Engineering</div>
-        <div class="what-desc">Building reliable, observable data pipelines at scale. Batch and streaming, with schema validation, data quality, and operational visibility built in from the start.</div>
+        <div class="what-title">Ad Tech Data Integration</div>
+        <div class="what-desc">Managing Fivetran integrations that pull programmatic campaign and impression data from DSP and SSP vendors including The Trade Desk, Xandr, PubMatic, and OpenX. Familiar with the data model, the quirks, and what breaks when vendors make changes upstream.</div>
       </div>
       <div class="what-card reveal">
         <div class="what-icon">▦</div>
-        <div class="what-title">Data Modeling & BI</div>
-        <div class="what-desc">Dimensional modeling, dbt transformation layers, semantic model design, and Power BI development that gives analysts the trusted data they need to work independently.</div>
+        <div class="what-title">BI & Semantic Modeling</div>
+        <div class="what-desc">Building and maintaining the Power BI layer that business teams actually use — SSAS semantic models, DAX measures, dataflows, and datasets. Campaign performance, sales tracking, and financial reporting delivered reliably to the people who depend on it.</div>
       </div>
     </div>
   </section>
@@ -628,52 +578,10 @@
       <div class="section-line"></div>
       <span class="section-num">02</span>
     </div>
-    <div class="proj-grid">
-      <div class="proj-card reveal">
-        <div class="proj-header">
-          <div class="proj-title">Box Office Analytics Pipeline</div>
-          <span class="proj-badge badge-wip">WIP</span>
-        </div>
-        <div class="proj-desc">End-to-end analytics pipeline from ingestion through transformation to a served dashboard. Built to demonstrate real-world architectural decisions across orchestration, storage, and modeling layers.</div>
-        <div class="proj-stack">
-          <span class="proj-tag">Dagster</span>
-          <span class="proj-tag">dbt</span>
-          <span class="proj-tag">DuckDB</span>
-          <span class="proj-tag">MotherDuck</span>
-          <span class="proj-tag">Streamlit</span>
-          <span class="proj-tag">Python</span>
-        </div>
-        <div class="proj-link">github.com/ajrodr82 ↗</div>
-      </div>
-      <div class="proj-card reveal">
-        <div class="proj-header">
-          <div class="proj-title">YNAB Finance Dashboard</div>
-          <span class="proj-badge badge-live">LIVE</span>
-        </div>
-        <div class="proj-desc">A full-stack data product built from scratch — automated Python sync pipeline, hourly GitHub Actions scheduler, PostgreSQL backend on Supabase, and a custom D3.js dashboard with KPI cards, trend charts, and spending breakdowns.</div>
-        <div class="proj-stack">
-          <span class="proj-tag">Python</span>
-          <span class="proj-tag">Supabase</span>
-          <span class="proj-tag">GitHub Actions</span>
-          <span class="proj-tag">D3.js</span>
-          <span class="proj-tag">Netlify</span>
-        </div>
-        <div class="proj-link">ajrodriguez.me/ynab-dashboard ↗</div>
-      </div>
-      <div class="proj-card reveal">
-        <div class="proj-header">
-          <div class="proj-title">Weather Data Pipeline</div>
-          <span class="proj-badge badge-wip">WIP</span>
-        </div>
-        <div class="proj-desc">Cloud-native ingestion pipeline with Airflow orchestration, Cloudflare R2 for cost-efficient object storage, and Snowflake for analytical querying. A practical showcase of cloud storage tier selection and cost optimization.</div>
-        <div class="proj-stack">
-          <span class="proj-tag">Airflow</span>
-          <span class="proj-tag">Cloudflare R2</span>
-          <span class="proj-tag">Snowflake</span>
-          <span class="proj-tag">Python</span>
-        </div>
-        <div class="proj-link">github.com/ajrodr82 ↗</div>
-      </div>
+    <div class="projects-placeholder reveal">
+      <div class="placeholder-label">// coming soon</div>
+      <div class="placeholder-heading">Projects in progress.</div>
+      <div class="placeholder-sub">New portfolio projects focused on ad tech data engineering are currently in development. Check back soon — or follow along on GitHub.</div>
     </div>
   </section>
 
@@ -683,12 +591,12 @@
       <div class="contact-grid"></div>
       <div class="contact-content">
         <div class="contact-label">// get in touch</div>
-        <div class="contact-heading">Let's work together.</div>
-        <div class="contact-sub">Based in Toney, AL — open to remote opportunities.</div>
+        <div class="contact-heading">Open to new opportunities.</div>
+        <div class="contact-sub">Based in Toney, AL — open to fully remote roles in ad tech and programmatic advertising.</div>
         <div class="contact-actions">
           <a href="mailto:ajrodr1982@gmail.com" class="btn btn-primary">ajrodr1982@gmail.com</a>
           <a href="https://github.com/ajrodr82" target="_blank" class="btn btn-ghost">GitHub ↗</a>
-          <a href="https://linkedin.com/in/ajrodr82" target="_blank" class="btn btn-ghost">LinkedIn ↗</a>
+          <a href="https://linkedin.com/in/aaronjrodriguez" target="_blank" class="btn btn-ghost">LinkedIn ↗</a>
         </div>
       </div>
     </div>
@@ -698,7 +606,7 @@
     <div class="footer-left">Aaron Rodriguez · Toney, AL</div>
     <div class="footer-links">
       <a href="https://github.com/ajrodr82" target="_blank">GitHub</a>
-      <a href="https://linkedin.com/in/ajrodr82" target="_blank">LinkedIn</a>
+      <a href="https://linkedin.com/in/aaronjrodriguez" target="_blank">LinkedIn</a>
       <a href="mailto:ajrodr1982@gmail.com">Email</a>
     </div>
   </footer>
