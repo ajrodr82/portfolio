@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aaron Rodriguez — Resume</title>
+  <meta name="description" content="Resume of Aaron Rodriguez, Senior Data Engineer with 20+ years of experience in ad tech and programmatic advertising data platforms." />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/ibm-plex-mono@5/400.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/ibm-plex-mono@5/600.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/ibm-plex-sans@5/400.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/ibm-plex-sans@5/500.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0d1117;
+      --surface:  #161b22;
+      --surface2: #1c2128;
+      --border:   #30363d;
+      --border2:  #444c56;
+      --text:     #e6edf3;
+      --muted:    #8b949e;
+      --dim:      #6e7681;
+      --cyan:     #39d0d8;
+      --cyan-bg:  rgba(57, 208, 216, 0.08);
+      --cyan-bdr: rgba(57, 208, 216, 0.25);
+      --mono:     'IBM Plex Mono', monospace;
+      --sans:     'IBM Plex Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 56px;
+      background: rgba(13, 17, 23, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--cyan);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+    }
+    .nav-logo span { color: var(--muted); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-cta {
+      color: var(--cyan) !important;
+      border: 1px solid var(--cyan-bdr);
+      border-radius: 4px;
+      padding: 5px 12px;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--cyan-bg) !important; }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--muted);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── PAGE WRAPPER ── */
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 96px 48px 80px;
+    }
+
+    /* ── RESUME HEADER ── */
+    .resume-header {
+      margin-bottom: 40px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .resume-name {
+      font-family: var(--mono);
+      font-size: 36px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .resume-title {
+      font-family: var(--mono);
+      font-size: 16px;
+      color: var(--cyan);
+      margin-bottom: 16px;
+    }
+
+    .resume-contact {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 20px;
+    }
+
+    .resume-contact a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .resume-contact a:hover { color: var(--cyan); }
+
+    .download-bar {
+      margin-top: 24px;
+    }
+
+    .btn-download {
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 8px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      background: var(--cyan);
+      color: #0d1117;
+      border: 1px solid var(--cyan);
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+    .btn-download:hover { background: #2bbfc7; border-color: #2bbfc7; }
+
+    /* ── SECTION ── */
+    .resume-section {
+      margin-bottom: 40px;
+    }
+
+    .resume-section-title {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--cyan);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── SUMMARY ── */
+    .resume-summary {
+      font-family: var(--sans);
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* ── EXPERIENCE ── */
+    .job {
+      margin-bottom: 32px;
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .job-company {
+      font-family: var(--mono);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .job-dates {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--dim);
+    }
+
+    .job-title {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--cyan);
+      margin-bottom: 12px;
+    }
+
+    .job-title span {
+      font-size: 11px;
+      color: var(--dim);
+    }
+
+    .job-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .job-bullets li {
+      font-family: var(--sans);
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .job-bullets li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--cyan);
+      font-size: 10px;
+      top: 4px;
+    }
+
+    .job-tools {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--dim);
+      line-height: 1.6;
+    }
+
+    .job-tools strong {
+      color: var(--muted);
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .skill-row {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 16px;
+      align-items: baseline;
+    }
+
+    .skill-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--cyan);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .skill-value {
+      font-family: var(--sans);
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-left {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--dim);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--muted); }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 56px; left: 0; right: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        background: rgba(13, 17, 23, 0.98);
+        border-bottom: 1px solid var(--border);
+        padding: 12px 0;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { width: 100%; }
+      .nav-links a {
+        display: block;
+        padding: 12px 20px;
+        font-size: 13px;
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-links li:last-child a { border-bottom: none; }
+      .nav-cta { border: none !important; border-radius: 0 !important; }
+      .page { padding: 80px 20px 60px; }
+      .skill-row { grid-template-columns: 1fr; gap: 4px; }
+      footer { padding: 20px; flex-direction: column; gap: 12px; text-align: center; }
+      .job-header { flex-direction: column; gap: 2px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="/"><span>~/</span>aaron_rodriguez</a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/">home</a></li>
+      <li><a href="/resume">Resume</a></li>
+      <li><a href="https://github.com/ajrodr82" target="_blank">GitHub</a></li>
+      <li><a href="https://linkedin.com/in/aaronjrodriguez" target="_blank">LinkedIn</a></li>
+      <li><a href="mailto:ajrodr1982@gmail.com" class="nav-cta">get in touch</a></li>
+    </ul>
+  </nav>
+
+  <div class="page">
+
+    <!-- HEADER -->
+    <div class="resume-header">
+      <div class="resume-name">Aaron Rodriguez</div>
+      <div class="resume-title">Senior Data Engineer</div>
+      <div class="resume-contact">
+        <span>Toney, AL</span>
+        <span>901.607.6553</span>
+        <a href="mailto:ajrodr1982@gmail.com">ajrodr1982@gmail.com</a>
+        <a href="https://github.com/ajrodr82" target="_blank">github.com/ajrodr82</a>
+        <a href="https://ajrodriguez.me" target="_blank">ajrodriguez.me</a>
+      </div>
+      <div class="download-bar">
+        <a href="/AaronRodriguez_SeniorDE.pdf" download class="btn-download">Download PDF ↓</a>
+      </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="resume-section">
+      <div class="resume-section-title">Summary</div>
+      <div class="resume-summary">
+        Senior Data Engineer with 20+ years of experience maintaining and extending production data platforms in cloud-first environments. Deep hands-on expertise in Azure Data Factory pipeline operations, Databricks transformation logic, Fivetran vendor integrations, and Power BI semantic modeling. Experienced supporting high-stakes advertising data infrastructure — ingesting programmatic campaign and impression data from DSP and SSP platforms including The Trade Desk, Xandr, PubMatic, and OpenX — where pipeline reliability directly impacts reporting across executive, sales, and finance teams. Known for diagnosing complex failures quickly, collaborating closely with product owners and business stakeholders, and delivering stable, trustworthy data to the people who depend on it.
+      </div>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="resume-section">
+      <div class="resume-section-title">Experience</div>
+
+      <div class="job">
+        <div class="job-header">
+          <div class="job-company">National CineMedia (NCM)</div>
+          <div class="job-dates">May 2022 – Present</div>
+        </div>
+        <div class="job-title">Senior Data Engineer <span>(Official title: BI Engineer III)</span></div>
+        <ul class="job-bullets">
+          <li>Owned end-to-end monitoring, diagnosis, and resolution of production pipeline failures across ADF and Databricks — restoring data flow to executive, sales, and finance reporting for the largest cinema advertising network in the US, where outages directly halt campaign and revenue visibility across the organization.</li>
+          <li>Maintained and extended a metadata-driven Databricks architecture that dynamically generates fact and dimension tables via SQL — implementing bug fixes, business logic updates, aggregation changes, and data cleansing in close collaboration with the product owner and business stakeholders.</li>
+          <li>Managed and troubleshot Fivetran integrations ingesting programmatic advertising data from DSP and SSP vendors including The Trade Desk, Xandr, OpenX, and PubMatic — diagnosing vendor-side schema changes, dependency breaks, and data anomalies to maintain pipeline integrity across critical ad data feeds.</li>
+          <li>Diagnosed and resolved a critical production outage caused by a vendor deleting upstream tables with downstream pipeline dependencies — reconstructed the affected SQL logic, validated data integrity end-to-end, and restored reporting across all impacted business domains.</li>
+          <li>Built and maintained a comprehensive Power BI reporting layer including SSAS semantic models, DAX measures, calculated columns, dataflows, and datasets — delivering campaign performance, sales, and financial reporting to stakeholders across the organization.</li>
+        </ul>
+        <div class="job-tools"><strong>Tools:</strong> Python, SQL, Spark SQL, DAX, Databricks, Azure Data Factory, Azure Data Lake Storage, Azure DevOps, Fivetran, The Trade Desk, Xandr, PubMatic, OpenX, Power BI, SSAS, SSMS, SQL Server, MySQL</div>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <div class="job-company">Insight Global (AT&amp;T — Contractor)</div>
+          <div class="job-dates">March 2022 – May 2022</div>
+        </div>
+        <div class="job-title">Senior Data Engineer</div>
+        <ul class="job-bullets">
+          <li>Maintained and extended ADF pipelines supporting enterprise analytics for a large telecommunications client — diagnosing failures, implementing business logic updates, and ensuring reliable nightly data processing.</li>
+          <li>Built and maintained Power BI semantic models, DAX measures, dataflows, and datasets — supporting operational and executive reporting across business domains.</li>
+          <li>Short-term contract role; departed for a permanent Senior Data Engineer position at National CineMedia.</li>
+        </ul>
+        <div class="job-tools"><strong>Tools:</strong> T-SQL, SQL Server, Azure Data Factory, Azure DevOps, Power BI, SSAS, DAX, SSMS</div>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <div class="job-company">Provisions Group</div>
+          <div class="job-dates">September 2021 – March 2022</div>
+        </div>
+        <div class="job-title">Senior Data Engineer</div>
+        <ul class="job-bullets">
+          <li>Designed and maintained ADF pipelines and Power BI reporting solutions across multiple client engagements — delivering data engineering and BI support in a consulting capacity across varied business domains.</li>
+          <li>Built Power BI semantic models, DAX measures, dataflows, and datasets tailored to each client's reporting requirements — ensuring consistent, trustworthy outputs across engagements.</li>
+        </ul>
+        <div class="job-tools"><strong>Tools:</strong> T-SQL, SQL Server, Azure Data Factory, Azure DevOps, Power BI, SSAS, DAX, SSMS</div>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <div class="job-company">Various Employers</div>
+          <div class="job-dates">2013 – 2021</div>
+        </div>
+        <div class="job-title">Data Engineer / BI Developer</div>
+        <ul class="job-bullets">
+          <li>Built and maintained ADF pipelines, SSIS packages, and SQL Server-based ETL workflows across full-time and contract roles — supporting data warehouse and reporting environments with full and incremental load patterns across cloud and on-premises environments.</li>
+          <li>Worked with Azure services including Azure Data Factory and Azure SQL alongside on-premises SQL Server — supporting gradual cloud adoption across multiple organizations and client engagements.</li>
+          <li>Designed and maintained Power BI semantic models, SSAS tabular models, DAX measures, calculated columns, and SSRS reports — delivering self-service and governed analytics across business domains including logistics, manufacturing, and enterprise clients.</li>
+        </ul>
+        <div class="job-tools"><strong>Tools:</strong> Python, T-SQL, PL/SQL, DAX, SQL Server, Oracle, MySQL, Azure Data Factory, Azure SQL, Azure DevOps, Power BI, SSAS, SSRS, SSIS, SSMS, DAX Studio, Tabular Editor, Tableau</div>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <div class="job-company">Tec-Masters Inc.</div>
+          <div class="job-dates">2002 – 2013</div>
+        </div>
+        <div class="job-title">Database &amp; Reporting Engineer / Technical Publications Developer</div>
+        <ul class="job-bullets">
+          <li>Self-initiated and built an HTML/SQL Server web application that replaced a manual Word document workflow — enabling authors to submit technical manual updates directly into a database with automated email notifications, eliminating distribution bottlenecks and serving as the catalyst for a career transition into data engineering.</li>
+          <li>Built automated SQL jobs extracting data from MySQL databases, ensuring data integrity and reliable nightly processing — establishing early version control, automation, and documentation practices for production data workflows.</li>
+          <li>Developed Excel-based reporting solutions providing operational and financial visibility to leadership and program stakeholders.</li>
+          <li>Designed and developed Class IV Interactive Electronic Technical Manuals (IETMs) for the US Marine Corps using Arbortext Epic Editor and IADS — authoring structured XML/SGML content in accordance with DoD CALS standards, enabling field personnel to access maintenance and logistics data electronically.</li>
+        </ul>
+        <div class="job-tools"><strong>Tools:</strong> SQL Server Express, MySQL, HTML, T-SQL, MS Excel, Arbortext Epic Editor, IADS, XML, SGML</div>
+      </div>
+
+    </div>
+
+    <!-- SKILLS -->
+    <div class="resume-section">
+      <div class="resume-section-title">Skills</div>
+      <div class="skills-grid">
+        <div class="skill-row">
+          <div class="skill-label">Languages</div>
+          <div class="skill-value">Python, SQL, Spark SQL, DAX, M, T-SQL</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label">Data Engineering</div>
+          <div class="skill-value">ETL/ELT pipelines, ADF pipeline operations & debugging, Fivetran vendor integrations, incremental sync patterns, MERGE-based upserts, metadata-driven architectures, batch processing</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label">Platforms</div>
+          <div class="skill-value">Databricks, Azure Data Factory, Azure Data Lake Storage, Azure DevOps, Fivetran, Snowflake, AWS (Glue, Athena, Lambda, Redshift, S3), SQL Server, MySQL, DuckDB, MotherDuck, Supabase</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label">BI & Semantic Layer</div>
+          <div class="skill-value">Power BI, SSAS (Tabular & Multidimensional), SSRS, DAX Studio, Tabular Editor, ALM Toolkit, Power BI Dataflows, Row-Level Security</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label">Orchestration</div>
+          <div class="skill-value">Apache Airflow, dbt, SSIS, Dagster</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label">DevOps & Governance</div>
+          <div class="skill-value">Azure DevOps, GitHub Actions, CI/CD, automated validation, access controls</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label">Ad Tech & Domain</div>
+          <div class="skill-value">Programmatic advertising, DSP/SSP data integration, ad campaign & impression pipelines, ad measurement & attribution, cinema advertising — The Trade Desk, Xandr, PubMatic, OpenX, Innovid, Locality, PlaceExchange, Simplifi, Sizmek, StackAdapt, Vistar</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-left">Aaron Rodriguez · Toney, AL</div>
+    <div class="footer-links">
+      <a href="https://github.com/ajrodr82" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/aaronjrodriguez" target="_blank">LinkedIn</a>
+      <a href="mailto:ajrodr1982@gmail.com">Email</a>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        navLinks.classList.remove('open');
+      });
+    });
+  </script>
+
+</body>
+</html>
