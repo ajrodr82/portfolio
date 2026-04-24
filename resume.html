@@ -4,385 +4,135 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aaron Rodriguez — Resume</title>
-  <meta name="description" content="Resume of Aaron Rodriguez, Senior Data Engineer with 20+ years of experience in ad tech and programmatic advertising data platforms." />
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/ibm-plex-mono@5/400.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/ibm-plex-mono@5/600.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/ibm-plex-sans@5/400.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/ibm-plex-sans@5/500.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:       #0d1117;
-      --surface:  #161b22;
-      --surface2: #1c2128;
-      --border:   #30363d;
-      --border2:  #444c56;
-      --text:     #e6edf3;
-      --muted:    #8b949e;
-      --dim:      #6e7681;
-      --cyan:     #39d0d8;
-      --cyan-bg:  rgba(57, 208, 216, 0.08);
-      --cyan-bdr: rgba(57, 208, 216, 0.25);
-      --mono:     'IBM Plex Mono', monospace;
-      --sans:     'IBM Plex Sans', sans-serif;
+      --bg:       #ffffff;
+      --bg2:      #f7f8fa;
+      --border:   #e3e6ed;
+      --text:     #1a1f2e;
+      --muted:    #5a6070;
+      --dim:      #9099aa;
+      --green-dk: #00c94e;
+      --navy:     #1a1f2e;
+      --sans:     'DM Sans', sans-serif;
+      --mono:     'DM Mono', monospace;
     }
 
     html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--sans);
-      font-size: 16px;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ── NAV ── */
+    /* NAV */
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 48px;
-      height: 56px;
-      background: rgba(13, 17, 23, 0.85);
-      backdrop-filter: blur(12px);
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 60px; display: flex; align-items: center; justify-content: space-between;
+      padding: 0 48px; background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
     }
-
-    .nav-logo {
-      font-family: var(--mono);
-      font-size: 13px;
-      color: var(--cyan);
-      text-decoration: none;
-      letter-spacing: 0.03em;
-    }
-    .nav-logo span { color: var(--muted); }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      list-style: none;
-    }
-    .nav-links a {
-      font-family: var(--mono);
-      font-size: 12px;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--text); }
-
-    .nav-cta {
-      color: var(--cyan) !important;
-      border: 1px solid var(--cyan-bdr);
-      border-radius: 4px;
-      padding: 5px 12px;
-      transition: background 0.2s !important;
-    }
-    .nav-cta:hover { background: var(--cyan-bg) !important; }
-
-    .nav-hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 4px;
-      background: none;
-      border: none;
-    }
-    .nav-hamburger span {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background: var(--muted);
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
+    .nav-logo { font-family: var(--mono); font-size: 14px; font-weight: 500; color: var(--navy); text-decoration: none; }
+    .nav-logo .dot { color: var(--green-dk); }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-cta { background: var(--navy) !important; color: #fff !important; padding: 8px 18px !important; border-radius: 6px !important; font-size: 13px !important; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .nav-hamburger span { display: block; width: 22px; height: 2px; background: var(--muted); border-radius: 2px; transition: all 0.3s; }
     .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .nav-hamburger.open span:nth-child(2) { opacity: 0; }
     .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    /* ── PAGE WRAPPER ── */
-    .page {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 96px 48px 80px;
-    }
+    /* PAGE */
+    .page { max-width: 820px; margin: 0 auto; padding: 96px 48px 80px; }
 
-    /* ── RESUME HEADER ── */
-    .resume-header {
-      margin-bottom: 40px;
-      padding-bottom: 32px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .resume-name {
-      font-family: var(--mono);
-      font-size: 36px;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 6px;
-    }
-
-    .resume-title {
-      font-family: var(--mono);
-      font-size: 16px;
-      color: var(--cyan);
-      margin-bottom: 16px;
-    }
-
-    .resume-contact {
-      font-family: var(--mono);
-      font-size: 12px;
-      color: var(--muted);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px 20px;
-    }
-
-    .resume-contact a {
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .resume-contact a:hover { color: var(--cyan); }
-
-    .download-bar {
-      margin-top: 24px;
-    }
-
+    /* HEADER */
+    .resume-header { padding-bottom: 32px; border-bottom: 1px solid var(--border); margin-bottom: 40px; }
+    .resume-name { font-size: 36px; font-weight: 600; color: var(--navy); letter-spacing: -0.025em; margin-bottom: 4px; }
+    .resume-title { font-family: var(--mono); font-size: 14px; color: var(--green-dk); margin-bottom: 14px; }
+    .resume-contact { display: flex; flex-wrap: wrap; gap: 6px 20px; font-family: var(--mono); font-size: 12px; color: var(--dim); margin-bottom: 20px; }
+    .resume-contact a { color: var(--dim); text-decoration: none; transition: color 0.15s; }
+    .resume-contact a:hover { color: var(--navy); }
     .btn-download {
-      font-family: var(--mono);
-      font-size: 12px;
-      padding: 8px 18px;
-      border-radius: 6px;
-      text-decoration: none;
-      background: var(--cyan);
-      color: #0d1117;
-      border: 1px solid var(--cyan);
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.2s;
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 500; padding: 8px 18px;
+      background: var(--navy); color: #fff; border: 1px solid var(--navy);
+      border-radius: 7px; text-decoration: none; transition: background 0.15s;
     }
-    .btn-download:hover { background: #2bbfc7; border-color: #2bbfc7; }
+    .btn-download:hover { background: #2d3448; }
 
-    /* ── SECTION ── */
-    .resume-section {
-      margin-bottom: 40px;
-    }
-
+    /* SECTIONS */
+    .resume-section { margin-bottom: 40px; }
     .resume-section-title {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--cyan);
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--border);
+      font-family: var(--mono); font-size: 11px; font-weight: 500;
+      color: var(--green-dk); letter-spacing: 0.1em; text-transform: uppercase;
+      margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid var(--border);
     }
 
-    /* ── SUMMARY ── */
-    .resume-summary {
-      font-family: var(--sans);
-      font-size: 15px;
-      color: var(--muted);
-      line-height: 1.8;
-    }
+    /* SUMMARY */
+    .resume-summary { font-size: 15px; color: var(--muted); line-height: 1.8; }
 
-    /* ── EXPERIENCE ── */
-    .job {
-      margin-bottom: 32px;
-    }
+    /* JOBS */
+    .job { margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid var(--border); }
+    .job:last-child { border-bottom: none; padding-bottom: 0; }
+    .job-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 6px; margin-bottom: 2px; }
+    .job-company { font-size: 16px; font-weight: 600; color: var(--navy); }
+    .job-dates { font-family: var(--mono); font-size: 12px; color: var(--dim); }
+    .job-title { font-family: var(--mono); font-size: 13px; color: var(--green-dk); margin-bottom: 14px; }
+    .job-title span { font-size: 11px; color: var(--dim); }
+    .job-bullets { list-style: none; display: flex; flex-direction: column; gap: 9px; margin-bottom: 14px; }
+    .job-bullets li { font-size: 14px; color: var(--muted); line-height: 1.75; padding-left: 16px; position: relative; }
+    .job-bullets li::before { content: '▸'; position: absolute; left: 0; color: var(--green-dk); font-size: 10px; top: 5px; }
+    .job-tools { font-family: var(--mono); font-size: 11px; color: var(--dim); line-height: 1.6; }
+    .job-tools strong { color: var(--muted); }
 
-    .job-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 4px;
-    }
+    /* SKILLS */
+    .skills-grid { display: flex; flex-direction: column; gap: 12px; }
+    .skill-row { display: grid; grid-template-columns: 180px 1fr; gap: 16px; align-items: baseline; }
+    .skill-label { font-family: var(--mono); font-size: 11px; font-weight: 500; color: var(--green-dk); letter-spacing: 0.06em; text-transform: uppercase; }
+    .skill-value { font-size: 14px; color: var(--muted); line-height: 1.6; }
 
-    .job-company {
-      font-family: var(--mono);
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--text);
-    }
-
-    .job-dates {
-      font-family: var(--mono);
-      font-size: 12px;
-      color: var(--dim);
-    }
-
-    .job-title {
-      font-family: var(--mono);
-      font-size: 13px;
-      color: var(--cyan);
-      margin-bottom: 12px;
-    }
-
-    .job-title span {
-      font-size: 11px;
-      color: var(--dim);
-    }
-
-    .job-bullets {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-bottom: 12px;
-    }
-
-    .job-bullets li {
-      font-family: var(--sans);
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.7;
-      padding-left: 16px;
-      position: relative;
-    }
-
-    .job-bullets li::before {
-      content: '▸';
-      position: absolute;
-      left: 0;
-      color: var(--cyan);
-      font-size: 10px;
-      top: 4px;
-    }
-
-    .job-tools {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--dim);
-      line-height: 1.6;
-    }
-
-    .job-tools strong {
-      color: var(--muted);
-    }
-
-    /* ── SKILLS ── */
-    .skills-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .skill-row {
-      display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: 16px;
-      align-items: baseline;
-    }
-
-    .skill-label {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--cyan);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .skill-value {
-      font-family: var(--sans);
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 24px 48px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .footer-left {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--dim);
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 20px;
-    }
-
-    .footer-links a {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--dim);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 24px 48px; display: flex; align-items: center; justify-content: space-between; max-width: 1100px; margin: 0 auto; }
+    .footer-left { font-family: var(--mono); font-size: 12px; color: var(--dim); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 13px; color: var(--dim); text-decoration: none; transition: color 0.15s; }
     .footer-links a:hover { color: var(--muted); }
 
     @media (max-width: 768px) {
       nav { padding: 0 20px; }
       .nav-hamburger { display: flex; }
-      .nav-links {
-        display: none;
-        position: fixed;
-        top: 56px; left: 0; right: 0;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0;
-        background: rgba(13, 17, 23, 0.98);
-        border-bottom: 1px solid var(--border);
-        padding: 12px 0;
-      }
+      .nav-links { display: none; position: fixed; top: 60px; left: 0; right: 0; flex-direction: column; align-items: flex-start; gap: 0; background: #fff; border-bottom: 1px solid var(--border); }
       .nav-links.open { display: flex; }
       .nav-links li { width: 100%; }
-      .nav-links a {
-        display: block;
-        padding: 12px 20px;
-        font-size: 13px;
-        border-bottom: 1px solid var(--border);
-      }
+      .nav-links a { display: block; padding: 14px 20px; border-bottom: 1px solid var(--border); }
       .nav-links li:last-child a { border-bottom: none; }
-      .nav-cta { border: none !important; border-radius: 0 !important; }
       .page { padding: 80px 20px 60px; }
-      .skill-row { grid-template-columns: 1fr; gap: 4px; }
+      .skill-row { grid-template-columns: 1fr; gap: 3px; }
       footer { padding: 20px; flex-direction: column; gap: 12px; text-align: center; }
-      .job-header { flex-direction: column; gap: 2px; }
     }
   </style>
 </head>
 <body>
 
   <nav>
-    <a class="nav-logo" href="/"><span>~/</span>aaron_rodriguez</a>
+    <a class="nav-logo" href="/">aaron<span class="dot">.</span>rodriguez</a>
     <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links" id="nav-links">
-      <li><a href="/">home</a></li>
+      <li><a href="/">Home</a></li>
       <li><a href="/resume">Resume</a></li>
       <li><a href="https://github.com/ajrodr82" target="_blank">GitHub</a></li>
       <li><a href="https://linkedin.com/in/aaronjrodriguez" target="_blank">LinkedIn</a></li>
-      <li><a href="mailto:ajrodr1982@gmail.com" class="nav-cta">get in touch</a></li>
+      <li><a href="mailto:ajrodr1982@gmail.com" class="nav-cta">Get in Touch</a></li>
     </ul>
   </nav>
 
   <div class="page">
 
-    <!-- HEADER -->
     <div class="resume-header">
       <div class="resume-name">Aaron Rodriguez</div>
       <div class="resume-title">Senior Data Engineer</div>
@@ -393,20 +143,14 @@
         <a href="https://github.com/ajrodr82" target="_blank">github.com/ajrodr82</a>
         <a href="https://ajrodriguez.me" target="_blank">ajrodriguez.me</a>
       </div>
-      <div class="download-bar">
-        <a href="/AaronRodriguez_SeniorDE.pdf" download class="btn-download">Download PDF ↓</a>
-      </div>
+      <a href="/AaronRodriguez_SeniorDE.pdf" download class="btn-download">Download PDF ↓</a>
     </div>
 
-    <!-- SUMMARY -->
     <div class="resume-section">
       <div class="resume-section-title">Summary</div>
-      <div class="resume-summary">
-        Senior Data Engineer with 20+ years of experience building, maintaining, and extending production data platforms in cloud-first environments. Hands-on expertise across the full pipeline lifecycle — from building new Databricks notebooks, Fivetran connectors, and SSIS packages to maintaining and debugging complex ADF pipelines in production. Deep experience in Azure Data Factory, Databricks transformation logic, Fivetran vendor integrations, and Power BI semantic modeling. Experienced supporting high-stakes advertising data infrastructure — ingesting programmatic campaign and impression data from DSP and SSP platforms including The Trade Desk, Xandr, PubMatic, and OpenX — where pipeline reliability directly impacts reporting across executive, sales, and finance teams. Known for diagnosing complex failures quickly, collaborating closely with product owners and business stakeholders, and delivering stable, trustworthy data to the people who depend on it.
-      </div>
+      <div class="resume-summary">Senior Data Engineer with 20+ years of experience building, maintaining, and extending production data platforms in cloud-first environments. Hands-on expertise across the full pipeline lifecycle — from building new Databricks notebooks, Fivetran connectors, and SSIS packages to maintaining and debugging complex ADF pipelines in production. Deep experience in Azure Data Factory, Databricks transformation logic, Fivetran vendor integrations, and Power BI semantic modeling. Experienced supporting high-stakes advertising data infrastructure — ingesting programmatic campaign and impression data from DSP and SSP platforms including The Trade Desk, Xandr, PubMatic, and OpenX — where pipeline reliability directly impacts reporting across executive, sales, and finance teams. Known for diagnosing complex failures quickly, collaborating closely with product owners and business stakeholders, and delivering stable, trustworthy data to the people who depend on it.</div>
     </div>
 
-    <!-- EXPERIENCE -->
     <div class="resume-section">
       <div class="resume-section-title">Experience</div>
 
@@ -485,38 +229,16 @@
 
     </div>
 
-    <!-- SKILLS -->
     <div class="resume-section">
       <div class="resume-section-title">Skills</div>
       <div class="skills-grid">
-        <div class="skill-row">
-          <div class="skill-label">Languages</div>
-          <div class="skill-value">Python, SQL, Spark SQL, DAX, M, T-SQL</div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-label">Data Engineering</div>
-          <div class="skill-value">ETL/ELT pipelines, ADF pipeline operations & debugging, Fivetran vendor integrations, incremental sync patterns, MERGE-based upserts, metadata-driven architectures, batch processing</div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-label">Platforms</div>
-          <div class="skill-value">Databricks, Azure Data Factory, Azure Data Lake Storage, Azure DevOps, Fivetran, Snowflake, AWS (Glue, Athena, Lambda, Redshift, S3), SQL Server, MySQL, DuckDB, MotherDuck, Supabase</div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-label">BI & Semantic Layer</div>
-          <div class="skill-value">Power BI, SSAS (Tabular & Multidimensional), SSRS, DAX Studio, Tabular Editor, ALM Toolkit, Power BI Dataflows, Row-Level Security</div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-label">Orchestration</div>
-          <div class="skill-value">Apache Airflow, Fivetran, SSIS, Dagster</div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-label">DevOps & Governance</div>
-          <div class="skill-value">Azure DevOps, GitHub Actions, CI/CD, automated validation, access controls</div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-label">Ad Tech & Domain</div>
-          <div class="skill-value">Programmatic advertising, DSP/SSP data integration, ad campaign & impression pipelines, ad measurement & attribution, cinema advertising — The Trade Desk, Xandr, PubMatic, OpenX, Innovid, Locality, PlaceExchange, Simplifi, Sizmek, StackAdapt, Vistar</div>
-        </div>
+        <div class="skill-row"><div class="skill-label">Languages</div><div class="skill-value">Python, SQL, Spark SQL, DAX, M, T-SQL</div></div>
+        <div class="skill-row"><div class="skill-label">Data Engineering</div><div class="skill-value">ETL/ELT pipelines, ADF pipeline operations & debugging, Fivetran vendor integrations, incremental sync patterns, MERGE-based upserts, metadata-driven architectures, batch processing</div></div>
+        <div class="skill-row"><div class="skill-label">Platforms</div><div class="skill-value">Databricks, Azure Data Factory, Azure Data Lake Storage, Azure DevOps, Fivetran, Snowflake, AWS (Glue, Athena, Lambda, Redshift, S3), SQL Server, MySQL, DuckDB, MotherDuck, Supabase</div></div>
+        <div class="skill-row"><div class="skill-label">BI & Semantic Layer</div><div class="skill-value">Power BI, SSAS (Tabular & Multidimensional), SSRS, DAX Studio, Tabular Editor, ALM Toolkit, Power BI Dataflows, Row-Level Security</div></div>
+        <div class="skill-row"><div class="skill-label">Orchestration</div><div class="skill-value">Apache Airflow, Fivetran, SSIS, Dagster</div></div>
+        <div class="skill-row"><div class="skill-label">DevOps & Governance</div><div class="skill-value">Azure DevOps, GitHub Actions, CI/CD, automated validation, access controls</div></div>
+        <div class="skill-row"><div class="skill-label">Ad Tech & Domain</div><div class="skill-value">Programmatic advertising, DSP/SSP data integration, ad campaign & impression pipelines, ad measurement & attribution, cinema advertising — The Trade Desk, Xandr, PubMatic, OpenX, Innovid, Locality, PlaceExchange, Simplifi, Sizmek, StackAdapt, Vistar</div></div>
       </div>
     </div>
 
